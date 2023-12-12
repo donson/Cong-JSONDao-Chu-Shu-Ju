@@ -4,20 +4,11 @@ import { UseTranslationResponse } from 'react-i18next';
 export default async function(uiBuilder: UIBuilder, { t }: UseTranslationResponse<'translation', undefined>) {
   // 展示关于如何使用该功能的信息
   uiBuilder.markdown(`
-  > 欢迎使用【从JSON导入数据】插件
+  > **欢迎使用【从JSON导入数据】插件**
   > 1. 输入JSON数组(一次最多支持5000条数据), 点击确定
   > 2. 选择数据表
   > 3. 选择JSON数组中的字段与数据表中的字段对应(不选择表示不用导入)
-  \`\`\`
-  // 示例JSON数组
-  [
-    {
-      "userId": 1,
-      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-      "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
-    }
-  ]
-  \`\`\`
+  > 4. [示例JSON数组](https://jsonplaceholder.typicode.com/users)
   `);
 
   // 处理导入JSON的逻辑，返回处理后的JSON数组或者空数组
@@ -108,5 +99,7 @@ export default async function(uiBuilder: UIBuilder, { t }: UseTranslationRespons
         uiBuilder.message.error(t('添加失败') + ': ' + error.message);
       }
     });
+
+
   });
 }
