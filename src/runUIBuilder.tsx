@@ -57,7 +57,7 @@ export default async function(uiBuilder: UIBuilder, { t }: UseTranslationRespons
 
       for (const key of Object.keys(item)) {
         if (vas['select-' + key] !== undefined) {
-          fields[vas['select-' + key].id as string] = item[key].toString();
+          fields[vas['select-' + key].id as string] = item[key].toString() != '[object Object]' ? item[key].toString() : JSON.stringify(item[key]);
         }
       }
 
